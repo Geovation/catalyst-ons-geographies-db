@@ -27,27 +27,28 @@ CREATE TABLE postcode (
 );
 
 -- Load the data from the parquet file into the postcodes table
+-- pcds,doterm,cty25cd,ced25cd,lad25cd,wd25cd,east1m,north1m,ctry25cd,rgn25cd,pcon24cd,oa11cd,lsoa11cd,msoa11cd,bua24cd,ruc11ind,imd20ind,oa21cd,lsoa21cd,msoa21cd,lat,long
 INSERT INTO postcode
-SELECT replace(pcd, ' '::VARCHAR, ''::VARCHAR) as postcode,
+SELECT replace(pcds, ' '::VARCHAR, ''::VARCHAR) as postcode,
        doterm as date_of_termination,
-       oscty as county_code,
-       ced as county_electoral_division_code,
-       oslaua as local_authority_district_code,
-       osward as ward_code,
-       oseast1m as easting,
-       osnrth1m as northing,
-       ctry as country_code,
-       rgn as region_code,
-       pcon as westminster_parliamentary_constituency_code,
-       oa11 as output_area_11_code,
-       lsoa11 as lower_super_output_area_11_code,
-       msoa11 as middle_super_output_area_11_code,
-       bua24 as built_up_area_24_code,
-       ru11ind as rural_urban_11_code,
-       imd as index_multiple_deprivation_rank,
-       oa21 as output_area_21_code,
-       lsoa21 as lower_super_output_area_21_code,
-       msoa21 as middle_super_output_area_21_code,
+       cty25cd as county_code,
+       ced25cd as county_electoral_division_code,
+       lad25cd as local_authority_district_code,
+       wd25cd as ward_code,
+       east1m as easting,
+       north1m as northing,
+       ctry25cd as country_code,
+       rgn25cd as region_code,
+       pcon24cd as westminster_parliamentary_constituency_code,
+       oa11cd as output_area_11_code,
+       lsoa11cd as lower_super_output_area_11_code,
+       msoa11cd as middle_super_output_area_11_code,
+       bua24cd as built_up_area_24_code,
+       ruc11ind as rural_urban_11_code,
+       imd20ind as index_multiple_deprivation_rank,
+       oa21cd as output_area_21_code,
+       lsoa21cd as lower_super_output_area_21_code,
+       msoa21cd as middle_super_output_area_21_code,
        long as longitude,
        lat as latitude
 FROM read_parquet('data/ons-postcode-directory.parquet');
@@ -78,8 +79,9 @@ CREATE TABLE country (
 
 -- Load the data from the parquet file into the countries table
 INSERT INTO country
-SELECT CTRY12CD as code, CTRY12NM as name
-FROM read_parquet('data/country-codes.parquet');
+SELECT CTRY25CD as code, CTRY25NM as name
+FROM read_parquet('data/country-codes.parquet')
+WHERE CTRY25CD IS NOT NULL;
 
 -- create a table for the counties
 CREATE TABLE county (
@@ -89,8 +91,9 @@ CREATE TABLE county (
 
 -- Load the data from the parquet file into the counties table
 INSERT INTO county
-SELECT CTY23CD as code, CTY23NM as name
-FROM read_parquet('data/county-codes.parquet');
+SELECT CTY25CD as code, CTY25NM as name
+FROM read_parquet('data/county-codes.parquet')
+WHERE CTY25CD IS NOT NULL;
 
 
 -- create a table for the county electoral divisions
@@ -101,8 +104,9 @@ CREATE TABLE county_electoral_division (
 
 -- Load the data from the parquet file into the county_electoral_divisions table
 INSERT INTO county_electoral_division
-SELECT CED23CD as code, CED23NM as name
-FROM read_parquet('data/ced-codes.parquet');
+SELECT CED25CD as code, CED25NM as name
+FROM read_parquet('data/ced-codes.parquet')
+WHERE CED25CD IS NOT NULL;
 
 -- create a table for the local authority districts
 CREATE TABLE local_authority_district (
@@ -112,8 +116,9 @@ CREATE TABLE local_authority_district (
 
 -- Load the data from the parquet file into the local_authority_districts table
 INSERT INTO local_authority_district
-SELECT LAD23CD as code, LAD23NM as name
-FROM read_parquet('data/la-ua-codes.parquet');
+SELECT LAD25CD as code, LAD25NM as name
+FROM read_parquet('data/la-ua-codes.parquet')
+WHERE LAD25CD IS NOT NULL;
 
 
 -- create a table for the regions
@@ -124,8 +129,9 @@ CREATE TABLE region (
 
 -- Load the data from the parquet file into the regions table
 INSERT INTO region
-SELECT RGN20CD as code, RGN20NM as name
-FROM read_parquet('data/region-codes.parquet');
+SELECT RGN25CD as code, RGN25NM as name
+FROM read_parquet('data/region-codes.parquet')
+WHERE RGN25CD IS NOT NULL;
 
 
 -- create a table for the Rural Urban (2011) Indicators
@@ -160,8 +166,9 @@ CREATE TABLE ward (
 
 -- Load the data from the parquet file into the wards table
 INSERT INTO ward
-SELECT WD24CD as code, WD24NM as name
-FROM read_parquet('data/ward-codes.parquet');
+SELECT WD25CD as code, WD25NM as name
+FROM read_parquet('data/ward-codes.parquet')
+WHERE WD25CD IS NOT NULL;
 
 CREATE VIEW vw_postcodes AS 
 SELECT 

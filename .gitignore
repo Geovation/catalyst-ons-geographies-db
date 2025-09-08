@@ -169,6 +169,7 @@ data/lsoas-filtered.geojson
 data/msoas.geojson
 data/msoas-filtered.geojson
 
+data/ons-postcode-directory/*
 data/ons-postcode-directory.zip
 data/ons-postcode-directory.csv
 data/ons-postcode-directory-filtered.csv
