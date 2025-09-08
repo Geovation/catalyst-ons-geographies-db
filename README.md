@@ -1,6 +1,6 @@
 # ONS Geography database
 
-This is a repository for storing and querying Office for National Statistics geographies within the geoparquet file format and importing into a DuckDB database.
+This is a repository for storing and querying Office for National Statistics data in the geoparquet file format and importing into a DuckDB database. It initially primarily uses the ONS Postcode Directory (ONSPD) and associated lookups.
 
 ## Introduction
 
@@ -34,7 +34,7 @@ When the downloads are done the data is processed to create a number of geoparqu
 ./process.sh
 ```
 
-These are pregenerated as part of this repository, and can be found in the `data` directory.
+These are pre-generated as part of this repository, and can be found in the `data` directory.
 
 - `lsoas.parquet` - Lower Super Output Areas
 - `msoas.parquet` - Middle Super Output Areas

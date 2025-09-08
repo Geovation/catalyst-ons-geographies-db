@@ -1,4 +1,4 @@
-﻿LAD23CD,LAD23NM,LAD23NMW
+﻿LAD25CD,LAD25NM,LAD25NMW
 E06000001,Hartlepool,
 E06000002,Middlesbrough,
 E06000003,Redcar and Cleveland,
@@ -241,10 +241,8 @@ E08000012,Liverpool,
 E08000013,St. Helens,
 E08000014,Sefton,
 E08000015,Wirral,
-E08000016,Barnsley,
 E08000017,Doncaster,
 E08000018,Rotherham,
-E08000019,Sheffield,
 E08000021,Newcastle upon Tyne,
 E08000022,North Tyneside,
 E08000023,South Tyneside,
@@ -262,6 +260,8 @@ E08000034,Kirklees,
 E08000035,Leeds,
 E08000036,Wakefield,
 E08000037,Gateshead,
+E08000038,Barnsley,
+E08000039,Sheffield,
 E09000001,City of London,
 E09000002,Barking and Dagenham,
 E09000003,Barnet,
@@ -360,5 +360,3 @@ W06000021,Monmouthshire,Sir Fynwy
 W06000022,Newport,Casnewydd
 W06000023,Powys,Powys
 W06000024,Merthyr Tydfil,Merthyr Tudful
-L99999999,Channel Islands,
-M99999999,Isle of Man,
