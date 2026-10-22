@@ -1,0 +1,4 @@
+CREATE TABLE region (
+	code VARCHAR PRIMARY KEY,
+	name VARCHAR
+);

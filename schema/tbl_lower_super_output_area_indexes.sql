@@ -1,0 +1,1 @@
+CREATE INDEX lsoa_geom_idx ON lower_super_output_area USING RTREE (geometry);

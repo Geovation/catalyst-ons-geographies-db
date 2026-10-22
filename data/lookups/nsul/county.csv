@@ -1,0 +1,33 @@
+code,name
+E11000001,Greater Manchester
+E10000017,Lancashire
+E10000028,Staffordshire
+E13000002,Outer London
+E10000016,Kent
+E10000019,Lincolnshire
+E11000007,Tyne and Wear
+E11000005,West Midlands
+E10000014,Hampshire
+W99999999,(pseudo) Wales
+E99999999,(pseudo) England (UA)
+E11000002,Merseyside
+E10000024,Nottinghamshire
+E10000025,Oxfordshire
+E10000003,Cambridgeshire
+E10000031,Warwickshire
+E10000029,Suffolk
+E10000020,Norfolk
+E10000034,Worcestershire
+E10000018,Leicestershire
+E10000012,Essex
+E11000003,South Yorkshire
+E10000007,Derbyshire
+E10000032,West Sussex
+S99999999,(pseudo) Scotland
+E10000013,Gloucestershire
+E10000011,East Sussex
+E11000006,West Yorkshire
+E13000001,Inner London
+E10000015,Hertfordshire
+E10000030,Surrey
+E10000008,Devon

@@ -1,13 +1,92 @@
 #!/bin/bash
+set -euo pipefail
 
-# Create data directory if it doesn't exist
-mkdir -p data
+cd "$(dirname "$0")"
+dataset=onspd
+with_boundaries=false
+onspd_url=https://www.arcgis.com/sharing/rest/content/items/9e5a92a3cfb14dc7ad43d6ea7a7b8c7f/data
+nsul_url=https://www.arcgis.com/sharing/rest/content/items/03c840334eb3496a97574abe1f86af10/data
+nsul_format=zip
+lsoa_url=https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Lower_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V5/FeatureServer/replicafilescache/Lower_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V5_-7764840717091613250.geojson
+msoa_url=https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V3/FeatureServer/replicafilescache/Middle_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V3_4916445166053426.geojson
+force=false
 
-# Download the MSOA boundaries as GeoJSON
-curl "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Middle_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V3/FeatureServer/replicafilescache/Middle_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V3_4916445166053426.geojson" -L -o data/msoas.geojson
+usage() {
+	printf '%s\n' \
+		'Usage: bash download.sh [options]' \
+		'  --dataset onspd|nsul|all  Dataset to download (default: onspd)' \
+		'  --with-boundaries           Also download LSOA/MSOA boundaries' \
+		'  --onspd-url URL          Override the default August 2026 ONSPD ZIP URL' \
+		'  --nsul-url URL               Override the default September 2026 NSUL ZIP URL' \
+		'  --nsul-format csv|parquet|zip NSUL download format (default: zip)' \
+		'  --lsoa-url URL               Override the 2021 EW LSOA GeoJSON URL' \
+		'  --msoa-url URL               Override the 2021 EW MSOA GeoJSON URL' \
+		'  --force                     Replace existing downloaded files' \
+		'  --help                      Show this help'
+}
 
-# Download the LSOA boundaries as GeoJSON
-curl "https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Lower_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V5/FeatureServer/replicafilescache/Lower_layer_Super_Output_Areas_December_2021_Boundaries_EW_BGC_V5_-7764840717091613250.geojson" -L -o data/lsoas.geojson
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+		--dataset|--onspd-url|--nsul-url|--nsul-format|--lsoa-url|--msoa-url)
+			if [[ $# -lt 2 || -z "$2" || "$2" == --* ]]; then
+				printf 'Missing value for %s\n' "$1" >&2
+				exit 1
+			fi
+			case "$1" in
+				--dataset) dataset=$2 ;;
+				--onspd-url) onspd_url=$2 ;;
+				--nsul-url) nsul_url=$2 ;;
+				--nsul-format) nsul_format=$2 ;;
+				--lsoa-url) lsoa_url=$2 ;;
+				--msoa-url) msoa_url=$2 ;;
+			esac
+			shift 2
+			;;
+		--with-boundaries) with_boundaries=true; shift ;;
+		--force) force=true; shift ;;
+		--help|-h) usage; exit 0 ;;
+		*) printf 'Unknown option: %s\n' "$1" >&2; usage >&2; exit 1 ;;
+	esac
+done
 
-# Download the ONS Postcode directory
-curl "https://ago-item-storage.s3.amazonaws.com/295e076b89b542e497e05632706ab429/ONSPD_AUG_2025.zip?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEMX%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIGDxgSg%2Bm2pejL7tZuGKbIO2fMUuQFv%2BW6GrzfCGwRwhAiEAmKIra0uwihKGLedKXBDHlw%2B8S1SMHUS8atG1pgfxCxoqsgUILhAAGgw2MDQ3NTgxMDI2NjUiDOMVFHFSfl9MNCydYiqPBQrGTKKXk1trq5M%2BeBxr4JGrhlHG4kAar3tl7c7ersxt450IxKr%2FQAY2zuyQflcK5rV4Tk1T7i9OZjRtrx4mj7i7HuA8r%2BcUNrEv%2FmLmPiwYHl6YB1zqty4RfPoazU2rYlM1K3AjFoZrOsGxy%2Bho1%2BfhibKOMczjyei6P6PMPGcJBsXIf7QPO6DwG56KbXngEkPP1fQmI9KPaEYiVuhRpdpi9yzmHg4kmu0W%2FXYqBE6yEGFPwarc31muuQnfkrCW1J29HTgZEnioTIEmFV3GSfRJj%2F3yuw6oItdoqYoP7POJ8PQd9Vbw5WU7SMapz4h4bs7lXFdyidJPcylIaipYquif%2FzcCbuV%2FfLxH72yk5aSaZ%2F1FGmDDT%2BJkZoAcnPQejL8wHegF3PfA7dziTLRSfBDVycUbu5iOrAenHklwLEpgAR%2FeA2brCA8gN3S7rH5yYZtyxP24R%2FAPbRayR2XmDgz4%2Bs1GPGUbcpLaQOxdfbiaymQfpjAQ0TxQMsAseTyNwwTEWYsHTrBlaq29psVVHN3sTFG6Tnu9%2FvB%2BgBBrV1ApPBHte%2BrEOL05z8Oth6xNtSSbf70W9pnnyiCjxYUR89F97iqOg3n%2Bq%2F8NQfGl2Xomnb5ls9yKjRcmNsyvHjOns5mP8k%2BrN5XMXT9lC6127AsNin9K0FmVraomGrcRg5ZcV5Zy8Fgdh%2FsXpdYaP0%2BhPzAQ1D1bfxxmNcgRA5Iqv5JgWVgD9SH98qwYhfnYeX86oxjh7F5Zr0PGCsTMOdeL017hu7O2KKTR%2B%2FsPyD44d%2BWeNcS0imCbtoNHGg5H17DE%2FaO7ouaEIrtGVq%2F2V%2FmUBVGOszKTC%2BHpWL8y9P%2BVbREkrYy9Tg0oE19pfSMxvVYw9cTbxQY6sQESfYM3K7hu%2F4tcp%2FhdolGyhLFyFplm%2Ffa7HVi%2FfWeAoeqZBJeCRU55wDMzUVVqafaX8G28Rvds7rbGmDl3NUwv%2Bqd9Q0vssrZ9P3pLf6vDXnUfSZQl8gGAWfVRgTdKsBm%2B%2F6EUGcdd%2BBlblNXPh%2F2tLpMh7a5kIQoHfjWY6SGsdYxm12pWTJlMZTxIfdfXobxrA0ndPyQmF0LOxhcMFMIAGYbljfumZ9j2Z5NDF5au1lo%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250902T124817Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAYZTTEKKEXCTXPBPW%2F20250902%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=6c634a17fdb1ac1e832976624a2b5456ff2d9f19dc8b9d58719021f2407dc756" -L -o data/ons-postcode-directory.zip
+case "$dataset" in
+	onspd|nsul|all) ;;
+	*) printf 'Invalid dataset: %s\n' "$dataset" >&2; exit 1 ;;
+esac
+case "$nsul_format" in
+	csv|parquet|zip) ;;
+	*) printf 'Invalid NSUL format: %s\n' "$nsul_format" >&2; exit 1 ;;
+esac
+urls=()
+files=()
+if [[ "$dataset" != nsul ]]; then
+	urls+=("$onspd_url")
+	files+=(onspd.zip)
+fi
+if [[ "$dataset" != onspd ]]; then
+	urls+=("$nsul_url")
+	files+=("nsul.$nsul_format")
+fi
+if "$with_boundaries"; then
+	urls+=("$lsoa_url" "$msoa_url")
+	files+=(lsoas.geojson msoas.geojson)
+fi
+for file in "${files[@]}"; do
+	if [[ -e "data/downloads/$file" ]] && ! "$force"; then
+		printf 'Download already exists: data/downloads/%s (use --force to replace it)\n' "$file" >&2
+		exit 1
+	fi
+done
+
+mkdir -p data/downloads
+temporary_dir=$(mktemp -d data/download.XXXXXX)
+trap 'rm -rf "$temporary_dir"' EXIT
+for index in "${!files[@]}"; do
+	file=${files[$index]}
+	printf 'Downloading %s\n' "$file"
+	curl --fail --location --retry 3 --output "$temporary_dir/$file" "${urls[$index]}"
+done
+for file in "${files[@]}"; do
+	mv "$temporary_dir/$file" "data/downloads/$file"
+	printf 'Downloaded data/downloads/%s\n' "$file"
+done

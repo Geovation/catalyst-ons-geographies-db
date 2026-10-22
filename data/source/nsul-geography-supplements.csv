@@ -1,0 +1,15 @@
+geography,code,name,source
+built_up_area_24,E63999999,(pseudo) England (not covered),NSUL September 2026 User Guide Annex A
+built_up_area_24,W45999999,(pseudo) Wales (not covered),NSUL September 2026 User Guide Annex A
+county,E99999999,(pseudo) England (UA),NSUL September 2026 User Guide Annex A
+county,S99999999,(pseudo) Scotland,NSUL September 2026 User Guide Annex A
+county,W99999999,(pseudo) Wales,NSUL September 2026 User Guide Annex A
+county_electoral_division,E99999999,(pseudo) England (not applicable),NSUL September 2026 User Guide Annex A
+county_electoral_division,S99999999,(pseudo) Scotland (not applicable),NSUL September 2026 User Guide Annex A
+county_electoral_division,W99999999,(pseudo) Wales (not applicable),NSUL September 2026 User Guide Annex A
+local_enterprise_partnership,S99999999,(pseudo) Scotland (not applicable),NSUL September 2026 User Guide Annex A
+local_enterprise_partnership,W99999999,(pseudo) Wales (not applicable),NSUL September 2026 User Guide Annex A
+region,S99999999,(pseudo) Scotland,NSUL September 2026 User Guide Annex A
+region,W99999999,(pseudo) Wales,NSUL September 2026 User Guide Annex A
+national_park,E65000001,England (non-National Park),NSUL September 2026 User Guide Annex A
+middle_super_output_area_21,E02000781,Redbridge 031,ONSPD August 2026 Documents/MSOA (2021) names and codes EW as at 12_21.csv

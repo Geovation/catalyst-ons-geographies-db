@@ -1,0 +1,20 @@
+code,name
+A1,(England/Wales) Urban major conurbation
+1,(Scotland) Large Urban Area
+B1,(England/Wales) Urban minor conurbation
+F2,(England/Wales) Rural hamlet and isolated dwellings in a sparse setting
+F1,(England/Wales) Rural hamlet and isolated dwellings
+6,(Scotland) Accessible Rural
+E2,(England/Wales) Rural village in a sparse setting
+D2,(England/Wales) Rural town and fringe in a sparse setting
+2,(Scotland) Other Urban Area
+5,(Scotland) Very Remote Small Town
+7,(Scotland) Remote Rural
+8,(Scotland) Very Remote Rural
+C2,(England/Wales) Urban city and town in a sparse setting
+3,(Scotland) Accessible Small Town
+4,(Scotland) Remote Small Town
+Z9,(pseudo) Channel Islands/Isle of Man
+D1,(England/Wales) Rural town and fringe
+E1,(England/Wales) Rural village
+C1,(England/Wales) Urban city and town

@@ -1,0 +1,23 @@
+code,name
+E26000004,Northumberland National Park
+E26000012,Yorkshire Dales National Park
+M99999999,(pseudo) Isle of Man
+S21000003,The Cairngorms National Park
+N99999999,(pseudo) Northern Ireland
+E26000009,New Forest National Park
+W18000001,Brecon Beacons National Park
+E26000002,Exmoor National Park
+E65000001,England (non-National Park)
+E26000006,Peak District National Park
+E26000011,Lake District National Park
+E26000001,Dartmoor National Park
+S21000002,The Loch Lomond and the Trossachs National Park
+L99999999,(pseudo) Channel Islands
+W18000003,Snowdonia National Park
+E26000007,The Broads Authority
+E26000010,South Downs National Park
+W31000001,Wales (non-National Park)
+E99999999,(pseudo) England (non-National Park)
+S99999999,(pseudo) Scotland (non-National Park)
+E26000005,North York Moors National Park
+W18000002,Pembrokeshire Coast National Park

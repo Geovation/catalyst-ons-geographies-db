@@ -1,0 +1,1 @@
+CREATE INDEX msoa_geom_idx ON middle_super_output_area USING RTREE (geometry);

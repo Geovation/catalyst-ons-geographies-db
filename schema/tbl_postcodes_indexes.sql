@@ -1,0 +1,1 @@
+CREATE INDEX postcodes_geom_idx ON postcodes USING RTREE (geometry);

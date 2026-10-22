@@ -163,15 +163,30 @@ cython_debug/
 
 .DS_Store
 
-data/lsoas.geojson
-data/lsoas-filtered.geojson
+data/downloads/
+data/prepared/onspd.parquet
+data/prepared/nsul.parquet
+data/download.*/
+data/process.*/
 
-data/msoas.geojson
-data/msoas-filtered.geojson
+data/downloads/lsoas.geojson
+data/downloads/lsoas-filtered.geojson
+
+data/downloads/msoas.geojson
+data/downloads/msoas-filtered.geojson
 
 data/ons-postcode-directory/*
 data/ons-postcode-directory.zip
 data/ons-postcode-directory.csv
 data/ons-postcode-directory-filtered.csv
+data/ons-postcode-directory-parts/
+data/downloads/nsul.csv
+data/prepared/nsul.parquet
+data/ons-postcode-directory.parquet
+data/downloads/onspd.zip
+data/prepared/onspd.parquet
+data/downloads/nsul.zip
 
-ons_postcodes.duckdb
+ons.duckdb
+ons-*.duckdb
+ons-*.duckdb.wal

@@ -1,0 +1,231 @@
+code,name
+S22000049,Arbroath and Montrose
+E30000278,Telford
+E30000282,Wadebridge
+E30000186,Cambridge
+E30000095,Minehead
+E30000284,Warrington and Wigan
+S22000050,Aviemore and Grantown-on-Spey
+E30000168,Birkenhead
+E30000210,Great Yarmouth
+S22000060,Elgin
+E30000061,Hastings
+N12000010,Omagh and Strabane
+E30000147,Whitby
+E30000190,Chesterfield
+E30000294,York
+E30000277,Taunton
+W22000016,Pembroke and Tenby
+E30000211,Grimsby
+E30000262,Shrewsbury
+S22000051,Ayr
+E30000093,Middlesbrough and Stockton
+E30000193,Colchester
+W22000030,Pwllheli and Porthmadog
+E30000051,Falmouth
+E30000227,Launceston
+E30000167,Bideford
+E30000171,Blackpool
+E30000220,Hull
+N12000008,Enniskillen
+S22000065,Glasgow
+S22000074,Perth
+W22000009,Haverfordwest and Milford Haven
+E30000248,Norwich
+S22000013,Eilean Siar
+S22000048,Alness and Invergordon
+M99999999,(pseudo) Isle of Man
+E30000240,Mansfield
+E30000256,Reading
+E30000263,Sidmouth
+W22000022,Bangor and Holyhead
+E30000205,Evesham
+E30000275,Sunderland
+E30000225,King's Lynn
+S22000066,Golspie and Brora
+S22000047,Aberdeen
+S22000052,Broadford and Kyle of Lochalsh
+W22000032,Swansea
+K01000013,Newport
+S22000063,Galashiels and Peebles
+E30000159,Andover
+E30000179,Brighton
+N12000006,Derry
+E30000242,Medway
+E30000170,Blackburn
+E30000291,Worksop and Retford
+E30000183,Burton upon Trent
+E30000216,Hereford
+S22000069,Kilmarnock and Irvine
+K01000005,Cinderford and Ross-on-Wye
+E30000292,Worthing
+E30000199,Darlington
+N12000005,Craigavon
+E30000279,Torquay and Paignton
+S22000084,Fraserburgh
+W22000011,Llandrindod Wells and Builth Wells
+E30000285,Weston-super-Mare
+E30000212,Guildford and Aldershot
+E30000039,Skipton
+E30000206,Exeter
+E30000233,Liverpool
+E30000173,Blyth and Ashington
+E30000176,Bridgwater
+E30000215,Hartlepool
+N12000001,Ballymena
+S22000039,Shetland Islands
+E30000249,Nottingham
+E30000203,Durham and Bishop Auckland
+E30000253,Plymouth
+E30000070,Isle of Wight
+S22000005,Campbeltown
+E30000192,Clacton
+E30000274,Street and Wells
+E30000229,Leeds
+E30000289,Worcester and Kidderminster
+K01000010,Carlisle
+E30000108,Peterborough
+E30000238,Malton
+K01000009,Berwick
+E30000169,Birmingham
+E30000200,Derby
+E30000221,Huntingdon
+E30000261,Sheffield
+E30000202,Dudley
+S22000078,St Andrews and Cupar
+E30000198,Cromer and Sheringham
+S22000070,Livingston
+E30000209,Gloucester
+E30000236,Ludlow
+S22000064,Girvan
+E30000106,Penrith
+E30000266,Slough and Heathrow
+N12000002,Belfast
+E30000222,Ipswich
+E30000255,Preston
+E30000178,Bridport
+S22000079,Stranraer
+E30000201,Doncaster
+S22000072,Newton Stewart
+S22000083,Wick
+S22000086,Lochgilphead
+S22000071,Motherwell and Airdrie
+S22000062,Fort William
+E30000064,Hexham
+S22000058,Dunoon and Rothesay
+W22000024,Cardiff
+W22000015,Newtown and Welshpool
+W22000026,Colwyn Bay
+E30000175,Bournemouth
+E30000231,Lincoln
+E30000076,Lancaster and Morecambe
+S22000054,Dumbarton and Helensburgh
+S22000057,Dunfermline and Kirkcaldy
+E30000235,Lowestoft
+E30000290,Workington
+E30000160,Ashford
+E30000267,Southampton
+E30000226,Kingsbridge and Dartmouth
+L99999999,(pseudo) Channel Islands
+E30000163,Barrow-in-Furness
+N12000003,Coleraine
+E30000177,Bridlington
+E30000174,Boston
+E30000234,London
+E30000018,Bradford
+E30000029,Halifax
+S22000032,Mull and Islay
+E30000276,Swindon
+E30000054,Grantham
+E30000187,Canterbury
+E30000287,Wisbech
+K01000014,Oswestry
+E30000259,Scarborough
+E30000293,Yeovil
+E30000241,Margate and Ramsgate
+S22000077,Portree
+E30000164,Basingstoke
+E30000230,Leicester
+E30000243,Milton Keynes
+S22000055,Dumfries
+E30000165,Bath
+E30000162,Barnstaple
+E30000189,Cheltenham
+E30000281,Tunbridge Wells
+E30000288,Wolverhampton and Walsall
+E30000254,Portsmouth
+S22000059,Edinburgh
+E30000188,Chelmsford
+E30000252,Penzance
+S22000053,Dalbeattie and Castle Douglas
+E30000161,Banbury
+E30000218,High Wycombe and Aylesbury
+E30000182,Burnley
+E30000245,Newcastle
+S22000035,Orkney Islands
+W22000023,Brecon
+E30000046,Dorchester and Weymouth
+E30000135,Thetford and Mildenhall
+E30000208,Folkestone and Dover
+S22000067,Hawick and Kelso
+E30000270,St Austell and Newquay
+E30000185,Buxton
+E30000247,Northampton
+N12000004,Cookstown and Magherafelt
+S22000081,Turriff and Banff
+W22000003,Bridgend
+E30000197,Crewe
+W22000025,Cardigan
+E30000246,Northallerton
+E30000181,Bude
+E30000250,Oxford
+E30000166,Bedford
+W22000021,Aberystwyth
+W22000033,Tywyn and Dolgellau
+E30000180,Bristol
+E30000264,Skegness and Louth
+S22000080,Thurso
+E30000224,Kettering and Wellingborough
+E30000273,Stoke-on-Trent
+E30000124,Spalding
+E30000204,Eastbourne
+E30000272,Stevenage and Welwyn Garden City
+S22000056,Dundee
+W22000028,Llanelli
+N12000007,Dungannon
+S22000068,Inverness
+E30000244,Newbury
+E30000257,Redruth and Truro
+E30000219,Huddersfield
+E30000260,Scunthorpe
+W22000034,Wrexham
+E30000194,Corby
+E30000184,Bury St Edmunds
+E30000232,Liskeard
+E30000110,Poole
+E30000239,Manchester
+S22000076,Pitlochry and Aberfeldy
+E30000280,Trowbridge
+E30000286,Whitehaven
+E30000258,Salisbury
+N12000009,Newry and Banbridge
+E30000228,Leamington Spa
+W22000031,Rhyl
+E30000237,Luton
+E30000004,Barnsley
+W22000029,Merthyr Tydfil
+S22000075,Peterhead
+E30000172,Blandford Forum and Gillingham
+E30000196,Crawley
+E30000268,Southend
+E30000191,Chichester and Bognor Regis
+K01000011,Chester
+S22000085,Greenock
+E30000214,Harrogate
+E30000223,Kendal
+S22000073,Oban
+S22000061,Falkirk and Stirling
+S22000082,Ullapool
+E30000195,Coventry
+E30000271,Stafford
+E30000283,Wakefield and Castleford

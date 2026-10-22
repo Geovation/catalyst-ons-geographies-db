@@ -1,0 +1,4 @@
+CREATE TABLE county (
+	code VARCHAR PRIMARY KEY,
+	name VARCHAR
+);

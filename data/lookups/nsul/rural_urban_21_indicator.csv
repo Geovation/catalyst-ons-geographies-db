@@ -1,0 +1,13 @@
+code,name
+UN1,Urban: Nearer to a major town or city
+5,Accessible Rural
+1,Large Urban Areas
+UF1,Urban: Further from a major town or city
+2,Other Urban Areas
+RLF1,Larger rural: Further from a major town or city
+4,Remote Small Towns
+3,Accessible Small Towns
+RSN1,Smaller rural: Nearer to a major town or city
+RLN1,Larger rural: Nearer to a major town or city
+RSF1,Smaller rural: Further from a major town or city
+6,Remote Rural

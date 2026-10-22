@@ -1,0 +1,4 @@
+CREATE TABLE ward (
+	code VARCHAR PRIMARY KEY,
+	name VARCHAR
+);
